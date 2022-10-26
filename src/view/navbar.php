@@ -30,15 +30,40 @@
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
-                    <span class="badge badge-sm indicator-item">8</span>
+                    <span class="badge badge-sm indicator-item"> 
+
+                        <?php 
+                                            
+                        if(isset($_SESSION['cart'])){
+                            $count = count($_SESSION['cart']);
+                            echo "<span id=\"cart_count\" class=\"text-white\">$count</span>";
+                        }else{
+                            echo "<span id=\"cart_count\" class=\"text-white\">0</span>";
+                        }
+
+                        
+                        ?>
+                    </span>
                 </div>
             </label>
             <div tabindex="0" class="mt-3 card card-compact dropdown-content w-52 bg-slate-50 shadow-lg">
                 <div class="card-body">
-                    <span class="font-bold text-lg">8 Items</span>
-                    <span class="text-info">Subtotal: $999</span>
+                    <span class="font-bold text-lg">
+                        <?php 
+                               
+                        if(isset($_SESSION['cart'])){
+                            $count = count($_SESSION['cart']);
+                            echo "<span id=\"cart_count\">$count</span>";
+                        }else{
+                            echo "<span id=\"cart_count\">0</span>";
+                        }
+
+                        
+                        ?> Items</span>
+                    
+                    <span class="text-info"></span>
                     <div class="card-actions">
-                        <a href="./cart.php"><button class="btn btn-primary btn-block">View cart</button></a>
+                        <a href="./cart.php"><button class="btn btn-primary btn-block rounded-md font-Quicksand">View cart</button></a>
                     </div>
                 </div>
             </div>
@@ -55,8 +80,8 @@
                 </div>
             </label>
             <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow-lg bg-slate-50 rounded-box w-52">
-                <p class="flex justify-center items-center mb-3">Welcome, <?= $_SESSION['username']?></p>
-                <div class="mx-auto btn btn-outline btn-error w-28"><a href="./function/logout.php">Logout</a></div>
+                <p class="flex justify-center items-center mb-3 font-Quicksand">Welcome, <?= $_SESSION['username']?></p>
+                <div class="mx-auto btn btn-outline btn-error w-28 "><a href="./function/logout.php">Logout</a></div>
             </ul>
         </div>
         <!-- End of profile -->

@@ -6,8 +6,9 @@ $user = "root";
 $pass = "";
 $db   = "e-books";
 
+
 $link = mysqli_connect($host,$user,$pass,$db) or die(mysqli_error($link));
-$result = mysqli_query($link, "SELECT * FROM salesitems");
+
 
 function query($query)
 {
@@ -20,3 +21,18 @@ function query($query)
     return $rows;
 
 }
+
+// Function to get the data from the database
+function getData()
+    {
+        global $link;
+        $sql = "SELECT * FROM product";
+    
+        $result = mysqli_query($link, $sql);
+    
+        if(mysqli_num_rows($result) > 0){
+            return $result;
+        }
+    }
+
+

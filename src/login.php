@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-theme="cupcake" lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -11,7 +11,7 @@
 
 <body>
 
-    <body class="bg-white h-screen">
+    <body class="h-screen">
 
         <div class="w-full flex flex-wrap font-Quicksand">
 
@@ -39,7 +39,7 @@
                             <input type="password" name="pass" id="username" placeholder="Enter your password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" required>
                         </div>
 
-                        <input type="submit" value="Log In" class="btn btn-primary text-white font-bold text-lg p-2 mt-8">
+                        <input type="submit" value="Log In" class="btn btn-primary text-white font-bold text-lg p-2 mt-8 rounded-md">
                     </form>
                     <div class="text-center pt-12 pb-12">
                         <p>Don't have an account? <a href="./register.php" class="link link-accent font-semibold">Register here.</a></p>
