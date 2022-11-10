@@ -13,7 +13,7 @@
 
     <body class="h-screen">
 
-        <div class="w-full flex flex-wrap font-Quicksand">
+        <main class="w-full flex flex-wrap font-Quicksand">
 
             <!-- Login Section -->
             <?php if (isset($_GET['error'])) { ?>
@@ -52,7 +52,7 @@
             <div class="w-1/2 shadow-2xl">
                 <img class="object-cover w-full h-screen hidden md:block" src="https://images.unsplash.com/photo-1494809610410-160faaed4de0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80">
             </div>
-        </div>
+        </main>
         <!-- Icon -->
         <script src="https://code.iconify.design/iconify-icon/1.0.0/iconify-icon.min.js"></script>
 

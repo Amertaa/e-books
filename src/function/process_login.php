@@ -1,28 +1,43 @@
 <?php
-include 'config.php';
 
-$user  = $_POST['username'];
-$pass = $_POST['pass'];
+require '../function/config.php';
 
-$query = mysqli_query($link, "SELECT * FROM user WHERE username = '$user' AND pass = '$pass'");
+// $name = $_POST['name'];
+$username = $_POST['username'];
+$password = $_POST['pass'];
 
-if (mysqli_num_rows($query) == 0) {
+$login = mysqli_query($link, "SELECT * FROM user WHERE username='$username' and pass='$password'");
+$count = mysqli_num_rows($login);
 
-?>
-    <script>
-        alert("Username dan Password tidak terdaftar");
-        window.location.assign("../register.php");
-    </script>
-<?php
+if ($count > 0) {
+    $data = mysqli_fetch_assoc($login);
 
+    if ($data['level'] == 'admin') {
+        $_SESSION['name'] = $name;
+        $_SESSION['username'] = $username;
+        $_SESSION['level'] = 'admin';
+        header("location:../admin.php");
+    } else if ($data['level'] == 'user') {
+        $name = $data['name'];
+        $_SESSION['name'] = $name;
+        $_SESSION['username'] = $username;
+        $_SESSION['level'] = 'user';
+        header("location:../main.php");
+    } else {
+        echo
+        "
+            <script>
+            alert('Username atau password anda salah!');
+            document.location.href ='../login.php';
+            </script>
+        ";
+    }
 } else {
-    $fetch = mysqli_fetch_assoc($query);
-    session_start();
-    $_SESSION['id_user'] = $fetch['id_user'];
-    $_SESSION['username'] = $user;  
-    $_SESSION['pass'] = $pass;
-
-    header("Location:../main.php");
+    echo
+    "
+            <script>
+            alert('Username atau password anda salah!');
+            document.location.href ='../login.php';
+            </script>
+        ";
 }
-
-?>

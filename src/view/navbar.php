@@ -6,7 +6,7 @@
         <ul class="menu menu-horizontal p-0 font-semibold">
             <li><a href="./main.php">Home</a></li>
             <li><a href="./shop.php">Shop</a></li>
-            <li><a>E-books</a></li>
+            <li><a href="./e-books.php">E-books</a></li>
             <li tabindex="0">
                 <a>
                     Category
@@ -80,7 +80,7 @@
                 </div>
             </label>
             <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow-lg bg-slate-50 rounded-box w-52">
-                <p class="flex justify-center items-center mb-3 font-Quicksand">Welcome, <?= $_SESSION['username']?></p>
+                <p class="flex justify-center items-center mb-3 font-Quicksand">Welcome, <?= $_SESSION['name']?></p>
                 <div class="mx-auto btn btn-outline btn-error w-28 "><a href="./function/logout.php">Logout</a></div>
             </ul>
         </div>

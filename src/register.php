@@ -28,6 +28,11 @@
 
                     <form class="flex flex-col pt-3 md:pt-8" action="./function/process_register.php" method="POST">
                         <div class="flex flex-col pt-4">
+                            <label for="text" class="text-lg font-bold">Name</label>
+                            <input type="text" name="username" id="username" placeholder="Enter your name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" required>
+                        </div>
+
+                        <div class="flex flex-col pt-4">
                             <label for="text" class="text-lg font-bold">Username</label>
                             <input type="text" name="username" id="username" placeholder="Enter your username" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" required>
                         </div>

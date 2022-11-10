@@ -21,14 +21,14 @@ function component($productname, $productprice, $productdesc, $productimg, $id_p
     </form>
 
         ";
-        echo $element;
-       
-    }
+    echo $element;
+}
 
-function cartElement($productname, $productprice, $productimg, $id_product){
+function cartElement($productname, $productprice, $productimg, $id_product)
+{
     $element = "
-    <form action=\"./cart.php?action=remove&id=$id_product\" method=\"GET\" class=\"cart-items\">
-    <div class=\"border rounded my-4 shadow-lg\">
+    <form action=\"./cart.php\" method=\"POST\" class=\"cart-items\">
+    <div class=\"border rounded my-4 shadow-lg mt-10\">
                     <div class=\"flex h-52\">
                         <img src=\"$productimg\" alt=\"\" class=\"w-44\">
                         <div class=\"p-7 font-Nunito\">
@@ -36,7 +36,9 @@ function cartElement($productname, $productprice, $productimg, $id_product){
                             <div class=\"text-sm text-slate-400\">Seller : Marsa Naufal</div>
                             <div class=\"text-xl\">Rp. $productprice.000</div>
                             <input class=\"btn btn-warning mt-10 rounded-md w-40\" value=\"Save For Later\">
-                            <input class=\"btn btn-danger mt-10 rounded-md w-40\" name=\"Remove\" value=\"Remove\">
+                            <input type=\"Button\" id=\"tombol\" onclick=\"remove(event)\" class=\"btn btn-danger mt-10 rounded-md w-40\" name=\"remove\" value=\"remove\">
+                            <input type=\"hidden\" name=\"id_product\" value=\"$id_product\">
+                            <input type=\"hidden\" name=\"action\" value=\"remove\">
                         </div>
                     </div>
                 </div>

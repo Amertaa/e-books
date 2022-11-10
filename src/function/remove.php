@@ -1,12 +1,32 @@
- <?php 
- if(isset($_POST['Remove'])){
-        if($_GET['action']=='remove'){
-            foreach($_SESSION['cart']as $key => $value){
-                if($value['id_product']== $_GET['id']){
-                    unset($_SESSION['cart'][$key]);
-                    echo "<script>alert('Product has been removed..!')</script>";
-                    echo "<script>window.location = './cart'</script>";
-                }
-            }
-        }
-    }
+<?php
+$post = json_decode(file_get_contents("php://input"), true);
+$id = $post['id_product'];
+$isFound = false;
+$json;
+
+session_id($_COOKIE['PHPSESSID']);
+session_start();
+
+foreach ($_SESSION['cart'] as $key => $value) {
+    if ($id !== $value['id_product'])
+        return;
+
+    unset($_SESSION['cart'][$key]);
+    $isFound = true;
+    break;
+}
+
+if ($isFound) {
+    $json = json_encode([
+        'message' => 'Delete success!',
+        'success' => true
+    ]);
+} else {
+    $json = json_encode([
+        'success' => false,
+        'message' => 'Error'
+    ]);
+}
+
+header('Content-Type: application/json');
+echo $json;

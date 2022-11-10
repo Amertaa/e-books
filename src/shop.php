@@ -24,8 +24,9 @@
         <!-- End of navbar -->
 
         <!-- Hero -->
-        <main class="flex justify-center items-center gap-5 min-h-screen">
-
+        <h1 class="text-5xl font-Cormorant text-center font-bold mt-5 mb-7">Latest Product</h1>
+        <main class="flex justify-center items-center gap-5">
+ 
             <!-- Fetching the data from the database -->
             <?php
             $result = getData();
